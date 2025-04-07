@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Starled – LED Экраны в Алматы</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f9f9f9;
+      color: #1c1c1e;
+      line-height: 1.6;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #ffffffcc;
+      backdrop-filter: blur(10px);
+      padding: 1em 0;
+      box-shadow: 0 1px 10px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    nav > div {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+    nav ul {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+    nav a {
+      color: #007aff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1em;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #0051a8;
+    }
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .slides {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: slide 12s infinite;
+    }
+    .slides img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+    .slider-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .slider-overlay h1 {
+      font-size: 3em;
+    }
+    .slider-overlay p {
+      font-size: 1.25em;
+      max-width: 600px;
+      margin-top: 1em;
+    }
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    section p {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      color: #555;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 20px;
+      text-align: center;
+    }
+    .card img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+    footer {
+      background: #f2f2f7;
+      padding: 40px 20px;
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 12px;
+      font-size: 1em;
+      background: #007aff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body id="top">
+<nav>
+  <div>
+    <a href="#top" style="display: flex; align-items: center; gap: 10px;">
+      <img src="images/logo.png" alt="Starled Logo" style="height: 50px;">
+    </a>
+    <ul>
+      <li><a href="#about">О нас</a></li>
+      <li><a href="#advantages">Преимущества</a></li>
+      <li><a href="#catalog">Каталог</a></li>
+      <li><a href="#pricing">Прайс</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <div class="language-switcher">
+      <button onclick="setLanguage('ru')">RU</button>
+      <button onclick="setLanguage('kz')">KZ</button>
+      <button onclick="setLanguage('en')">EN</button>
+    </div>
+  </div>
+</nav>
+<header class="slider">
+  <div class="slides">
+    <img src="slider_images/slide1.jpg" alt="Слайд 1">
+    <img src="slider_images/slide2.jpg" alt="Слайд 2">
+    <img src="slider_images/slide3.jpg" alt="Слайд 3">
+  </div>
+  <div class="slider-overlay">
+    <h1>Starled – ведущий поставщик LED-экранов в Алматы</h1>
+    <p>
+      Мы предлагаем современные решения для бизнеса и мероприятий: продажа, установка и аренда светодиодных экранов по всему Казахстану.<br>
+      В ассортименте – внутренние и наружные LED-модули, видеопроцессоры, контроллеры, блоки питания и конструктивные элементы.<br>
+      Гарантируем высокое качество, доступные цены и профессиональный сервис.
+    </p>
+  </div>
+</header>
+<section id="about">
+  <h2 class="lang" data-key="about-title">О Компании</h2>
+  <p>Мы предлагаем полный цикл услуг: от подбора компонентов и проектирования до монтажа и обслуживания. С 2014 года реализуем проекты по наружной рекламе и LED-технологиям по всей стране.</p>
+</section>
+<section id="video">
+  <h2>Презентация</h2>
+  <p>Посмотрите краткий обзор наших работ и возможностей LED-решений:</p>
+  <div style="display: flex; justify-content: center; margin-top: 20px;">
+    <video controls style="width: 100%; max-width: 720px; border-radius: 12px;">
+      <source src="video/video5262782431773088703.mp4" type="video/mp4">
+      Ваш браузер не поддерживает воспроизведение видео.
+    </video>
+  </div>
+  <div class="grid" style="margin-top: 40px;">
+    <div class="card">
+      <img src="images/page_3.jpg" alt="LED экран пример 1">
+    </div>
+    <div class="card">
+      <img src="images/page_4.jpg" alt="LED экран пример 2">
+    </div>
+    <div class="card">
+      <img src="images/page_5.jpg" alt="LED экран пример 3">
+    </div>
+  </div>
+</section>
+<section id="advantages">
+  <h2>Почему выбирают нас</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Опыт более 10 лет</h3>
+      <p>Наша команда успешно реализует LED-проекты с 2014 года.</p>
+    </div>
+    <div class="card">
+      <h3>Качество и гарантия</h3>
+      <p>Используем только проверенные модули и сертифицированные комплектующие.</p>
+    </div>
+    <div class="card">
+      <h3>Сервис под ключ</h3>
+      <p>От консультации и расчёта до установки и послепродажного обслуживания.</p>
+    </div>
+  </div>
+</section>
+<section id="certificates">
+  <h2>Сертификаты</h2>
+  <p style="text-align: center; max-width: 800px; margin: 0 auto 40px auto; color: #555;">
+    Наша компания является <strong>официальным дистрибьютором</strong> Qiangli Jucai в Казахстане.<br>
+    Мы гордимся партнёрством с одним из мировых лидеров в производстве LED-экранов.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <img src="images/photo_2025-04-04_16-35-56.jpg" alt="Сертификат Qiangli 1" style="max-height: 300px; object-fit: contain;">
+      <p>Сертификат авторизации</p>
+    </div>
+    <div class="card">
+      <img src="images/photo_2025-04-04_16-35-57.jpg" alt="Сертификат Qiangli 2" style="max-height: 300px; object-fit: contain;">
+      <p>Сертификат дистрибьютора</p>
+    </div>
+  </div>
+</section>
+<section id="catalog">
+  <h2>Каталог</h2>
+  <p>Все необходимые модули, процессоры, карты и комплектующие для ваших экранов.</p>
+  <div class="grid">
+    <div class="card">
+      <img src="images/page_3.jpg" alt="LED Экраны">
+      <h3>LED модули (внутренние и наружные)</h3>
+    </div>
+    <div class="card">
+      <img src="images/page_6.jpg" alt="Видеопроцессоры">
+      <h3>Видеопроцессоры</h3>
+    </div>
+    <div class="card">
+      <img src="images/page_6.jpg" alt="Карты управления">
+      <h3>Карты управления</h3>
+    </div>
+    <div class="card">
+      <img src="images/page_6.jpg" alt="Блоки питания и профили">
+      <h3>Блоки питания и профили</h3>
+    </div>
+  </div>
+</section>
+<section id="pricing">
+  <h2>Прайс-лист</h2>
+  <p>Примеры продукции из ассортимента. Для актуальных цен — свяжитесь с нами.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>P3 RGB SMD</h3>
+      <p>320x160 мм</p>
+    </div>
+    <div class="card">
+      <h3>P4 RGB SMD</h3>
+      <p>320x160 мм</p>
+    </div>
+    <div class="card">
+      <h3>P5 RGB SMD</h3>
+      <p>320x160 мм</p>
+    </div>
+    <div class="card">
+      <h3>P6 RGB SMD</h3>
+      <p>320x160 мм</p>
+    </div>
+    <div class="card">
+      <h3>P2 RGB SMD</h3>
+      <p>320x160 мм</p>
+    </div>
+    <div class="card">
+      <h3>P2.5 RGB SMD</h3>
+      <p>320x160 мм</p>
+    </div>
+    <div class="card">
+      <h3>HD-VP620</h3>
+      <p>Видеопроцессор</p>
+    </div>
+    <div class="card">
+      <h3>HD-VP410</h3>
+      <p>Видеопроцессор</p>
+    </div>
+    <div class="card">
+      <h3>HD-VP820</h3>
+      <p>Видеопроцессор</p>
+    </div>
+    <div class="card">
+      <h3>HD-A4</h3>
+      <p>Контроллер</p>
+    </div>
+  </div>
+</section>
+<section id="projects" style="background: #111; color: white; padding: 80px 0;">
+  <h2 style="text-align:center; margin-bottom: 40px;">НАШИ ПРОЕКТЫ</h2>
+  <div class="carousel">
+    <button class="prev">&#10094;</button>
+    <div class="carousel-track-container">
+      <ul class="carousel-track">
+        <li class="slide"><img src="images/project1.jpg" alt="Проект 1"></li>
+        <li class="slide"><img src="images/project2.jpg" alt="Проект 2"></li>
+        <li class="slide"><img src="images/project3.jpg" alt="Проект 3"></li>
+        <li class="slide"><img src="images/project4.jpg" alt="Проект 4"></li>
+      </ul>
+    </div>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+<section id="contact">
+  <h2>Контакты</h2>
+  <p>Телефон: <a href="tel:+77013770444">+7 701 377 0444</a> (WhatsApp)</p>
+  <p>Адрес: <a href="https://2gis.kz/almaty/geo/70000001039772962" target="_blank">г. Алматы, ул. Коперника 84A</a></p>
+  <p>Instagram: <a href="https://www.instagram.com/star_led.kz" target="_blank">@star_led.kz</a></p>
+</section>
+<section id="form">
+  <h2>Оставить заявку</h2>
+  <form action="#" method="post" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+    <input type="text" placeholder="Ваше имя" required>
+    <input type="tel" placeholder="Телефон" required>
+    <textarea placeholder="Комментарий" rows="4"></textarea>
+    <button type="submit">Отправить</button>
+    <p style="color: green; text-align: center; margin-top: 10px;">Спасибо! Мы свяжемся с вами в ближайшее время.</p>
+  </form>
+</section>
+<footer>
+  <p>© 2025 Starled. Все права защищены.</p>
+</footer>
+</body>
+</html>
